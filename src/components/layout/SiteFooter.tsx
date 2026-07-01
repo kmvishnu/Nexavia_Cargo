@@ -1,0 +1,114 @@
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Globe,
+} from "lucide-react";
+import { NexaviaLogo } from "@/components/brand/NexaviaLogo";
+import { Container } from "./Container";
+import { contactInfo, quickLinks, servicesList } from "./nav-config";
+
+export function SiteFooter() {
+  return (
+    <footer className="bg-navy text-navy-foreground">
+      <Container className="py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* brand */}
+          <div className="space-y-5">
+            <NexaviaLogo variant="light" />
+            <p className="text-sm leading-relaxed text-white/70">
+              A Dubai-based aviation services and freight brokerage company
+              connecting airlines, operators and global cargo markets with
+              expertise, integrity and excellence.
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              {[Linkedin, Facebook, Instagram, Mail].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  aria-label="social"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white/80 hover:border-gold hover:text-gold transition-colors"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* quick links */}
+          <FooterCol title="Quick Links">
+            {quickLinks.map((l) => (
+              <Link
+                key={l.label}
+                href={l.to}
+                className="text-sm text-white/70 hover:text-gold transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </FooterCol>
+
+          {/* services */}
+          <FooterCol title="Our Services">
+            {servicesList.map((s) => (
+              <Link
+                key={s}
+                href="/services"
+                className="text-sm text-white/70 hover:text-gold transition-colors"
+              >
+                {s}
+              </Link>
+            ))}
+          </FooterCol>
+
+          {/* contact */}
+          <FooterCol title="Contact Us">
+            <div className="flex gap-3 text-sm text-white/70">
+              <MapPin className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+              <span>{contactInfo.address}</span>
+            </div>
+            <div className="flex gap-3 text-sm text-white/70">
+              <Phone className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+              <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+            </div>
+            <div className="flex gap-3 text-sm text-white/70">
+              <Mail className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+            </div>
+            <div className="flex gap-3 text-sm text-white/70">
+              <Globe className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+              <span>{contactInfo.website}</span>
+            </div>
+          </FooterCol>
+        </div>
+      </Container>
+      <div className="border-t border-white/10">
+        <Container className="py-5">
+          <p className="text-center text-xs text-white/60">
+            © {new Date().getFullYear()} Nexavia Global Cargo LLC. All Rights
+            Reserved.
+          </p>
+        </Container>
+      </div>
+    </footer>
+  );
+}
+
+function FooterCol({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <h4 className="mb-5 text-base font-semibold text-white">{title}</h4>
+      <div className="flex flex-col gap-3">{children}</div>
+    </div>
+  );
+}
