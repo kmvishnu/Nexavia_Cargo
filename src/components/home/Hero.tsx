@@ -32,21 +32,21 @@ export function Hero() {
             <br />
             <span className="text-gold">Commercial Excellence.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm md:text-base lg:text-lg leading-relaxed text-white/80">
+          <p className="mt-6 max-w-xl text-xs md:text-sm lg:text-base leading-relaxed text-white/80">
             Nexavia Global Cargo LLC is a Dubai-based aviation services and
             freight brokerage company delivering strategic cargo solutions to
             airlines, freight forwarders, charter operators, and global
             businesses. We connect capacity with opportunity through expertise,
             partnerships, and performance.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4 mb-10">
-            <ProposalButton className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground transition-colors hover:brightness-105">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 mb-10">
+            <ProposalButton className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-sm font-semibold text-gold-foreground transition-colors hover:brightness-105 w-full sm:w-auto">
               Request a Proposal
               <ArrowRight className="h-4 w-4" />
             </ProposalButton>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 w-full sm:w-auto"
             >
               Explore Our Services
               <ArrowRight className="h-4 w-4" />
