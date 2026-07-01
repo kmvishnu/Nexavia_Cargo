@@ -5,7 +5,7 @@ import { PartnershipCTA } from "@/components/home/PartnershipCTA";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "News & Insights — Nexavia Global Cargo",
+  title: "News & Insights",
   description:
     "Perspectives on air cargo markets, capacity, charter demand and aviation trends from the Nexavia team.",
 };

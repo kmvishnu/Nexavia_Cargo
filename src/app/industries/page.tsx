@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industries — Nexavia Global Cargo",
+  title: "Industries",
   description:
     "Industry expertise in pharma, high-tech, automotive, fashion, oil & gas, perishables and humanitarian cargo.",
 };

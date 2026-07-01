@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us — Nexavia Global Cargo",
+  title: "About Us",
   description:
-    "Dubai-based aviation services and freight brokerage company. Learn about Nexavia's mission, vision and values.",
+    "Dubai-based aviation services and freight brokerage company. Learn about Nexavia's mission, vision, and values.",
 };
 
 const values = [

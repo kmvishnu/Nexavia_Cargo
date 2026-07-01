@@ -7,7 +7,7 @@ import worldmap from "@/assets/cta-worldmap.jpg";
 import { MapPin, Plane, Globe2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Network — Nexavia Global Cargo",
+  title: "Our Global Network",
   description:
     "A Dubai-based hub connecting airlines, operators and forwarders across the Middle East, Asia, Europe, Africa and the Americas.",
 };

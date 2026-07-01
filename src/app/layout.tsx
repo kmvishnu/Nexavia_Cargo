@@ -6,13 +6,18 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import "../styles.css";
 
 export const metadata: Metadata = {
-  title: "Nexavia Global Cargo LLC — Aviation Services & Freight Brokerage",
+  title: {
+    default: "Nexavia Global Cargo LLC — Aviation Services & Freight Brokerage",
+    template: "%s | Nexavia Global Cargo LLC",
+  },
   description:
     "Dubai-based aviation services and freight brokerage company connecting airlines, operators and global cargo markets.",
   openGraph: {
     title: "Nexavia Global Cargo LLC",
     description: "Aviation Expertise. Global Connections. Commercial Excellence.",
     type: "website",
+    url: "https://nexaviacargo.com",
+    siteName: "Nexavia Global Cargo",
   },
   twitter: {
     card: "summary_large_image",
