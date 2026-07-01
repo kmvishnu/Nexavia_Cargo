@@ -50,8 +50,8 @@ export const quickLinks = [
 ];
 
 export const contactInfo = {
-  address: "Office 2103, HDS Business Centre, JLT, Dubai, UAE",
-  phone: "+971 4 123 4567",
-  email: "info@nexaviacargo.com",
-  website: "www.nexaviacargo.com",
+  address: "Al Garhoud, Dubai, United Arab Emirates",
+  phone: "+971 (0) 50 175 3459",
+  email: "info@nexaviaglobalcargo.com",
+  website: "wwww.nexaviaglobalcargo.com",
 };

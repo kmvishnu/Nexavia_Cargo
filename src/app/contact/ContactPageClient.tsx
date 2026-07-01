@@ -87,7 +87,7 @@ export default function ContactPageClient() {
                 {contactInfo.website}
               </ContactRow>
               <ContactRow Icon={Clock} title="Hours">
-                Sun – Thu · 09:00 – 18:00 GST
+                MON-FRI 09:00 to 18:00, SAT 09:00 to 13:00 GST
               </ContactRow>
             </div>
           </div>

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Nexavia Global Cargo LLC",
     description: "Aviation Expertise. Global Connections. Commercial Excellence.",
     type: "website",
-    url: "https://nexaviacargo.com",
+    url: "https://nexaviaglobalcargo.com",
     siteName: "Nexavia Global Cargo",
   },
   twitter: {

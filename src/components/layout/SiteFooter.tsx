@@ -26,11 +26,18 @@ export function SiteFooter() {
               expertise, integrity and excellence.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              {[Linkedin, Facebook, Instagram, Mail].map((Icon, i) => (
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/nexaviaglobalcargo", label: "LinkedIn" },
+                { Icon: Facebook, href: "#", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/nexavia_global_cargo/", label: "Instagram" },
+                { Icon: Mail, href: `mailto:${contactInfo.email}`, label: "Email" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
-                  aria-label="social"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
                   className="grid h-9 w-9 place-items-center rounded-full border border-white/20 text-white/80 hover:border-gold hover:text-gold transition-colors"
                 >
                   <Icon className="h-4 w-4" />
