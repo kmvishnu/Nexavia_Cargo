@@ -13,9 +13,9 @@ export function NexaviaLogo({
   size = "md",
 }: Props) {
   const sizeMap = {
-    sm: { width: 50, height: 50 },
-    md: { width: 58, height: 58 },
-    lg: { width: 64, height: 64 },
+    sm: { width: 60, height: 60 },
+    md: { width: 100, height: 100 },
+    lg: { width: 100, height: 100 },
   };
 
   const { width, height } = sizeMap[size];
