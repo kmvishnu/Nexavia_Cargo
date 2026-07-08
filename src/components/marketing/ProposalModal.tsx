@@ -81,7 +81,8 @@ function ProposalDialog({
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const fd = new FormData(formElement);
     const raw = Object.fromEntries(fd.entries());
     const parsed = schema.safeParse(raw);
     if (!parsed.success) {
@@ -89,12 +90,28 @@ function ProposalDialog({
       return;
     }
     setSubmitting(true);
-    // Simulate submit — hook up to a backend/edge function later.
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    toast.success("Thank you — our team will be in touch within one business day.");
-    (e.target as HTMLFormElement).reset();
-    onOpenChange(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsed.data),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit request.");
+      }
+
+      toast.success("Thank you — our team will be in touch within one business day.");
+      formElement.reset();
+      onOpenChange(false);
+    } catch (err: any) {
+      toast.error(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const whatsappUrl = `https://wa.me/${contactInfo.phone.replace(/\D/g, "")}?text=I%27d%20like%20to%20know%20about%20the%20services`;

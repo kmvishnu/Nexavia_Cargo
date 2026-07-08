@@ -44,10 +44,27 @@ export default function ContactPageClient() {
       return;
     }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 700));
-    setSubmitting(false);
-    toast.success("Thank you — our team will be in touch within one business day.");
-    form.reset();
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsed.data),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit request.");
+      }
+
+      toast.success("Thank you — our team will be in touch within one business day.");
+      form.reset();
+    } catch (err: any) {
+      toast.error(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
