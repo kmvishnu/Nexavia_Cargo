@@ -11,6 +11,7 @@ import {
 import { NexaviaLogo } from "@/components/brand/NexaviaLogo";
 import { Container } from "./Container";
 import { contactInfo, quickLinks, servicesList } from "./nav-config";
+import { WhatsappIcon } from "@/components/brand/WhatsappIcon";
 
 export function SiteFooter() {
   return (
@@ -30,6 +31,7 @@ export function SiteFooter() {
                 { Icon: Linkedin, href: "https://www.linkedin.com/company/nexaviaglobalcargo", label: "LinkedIn" },
                 { Icon: Facebook, href: "#", label: "Facebook" },
                 { Icon: Instagram, href: "https://www.instagram.com/nexavia_global_cargo/", label: "Instagram" },
+                { Icon: WhatsappIcon, href: "https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services", label: "WhatsApp" },
                 { Icon: Mail, href: `mailto:${contactInfo.email}`, label: "Email" },
               ].map(({ Icon, href, label }) => (
                 <a
@@ -80,7 +82,18 @@ export function SiteFooter() {
             </div>
             <div className="flex gap-3 text-sm text-white/70">
               <Phone className="h-4 w-4 shrink-0 text-gold mt-0.5" />
-              <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+              <a href={`tel:${contactInfo.phone}`} className="hover:text-gold transition-colors">{contactInfo.phone}</a>
+            </div>
+            <div className="flex gap-3 text-sm text-white/70">
+              <WhatsappIcon className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+              <a
+                href="https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+              >
+                {contactInfo.phone} (WhatsApp)
+              </a>
             </div>
             <div className="flex gap-3 text-sm text-white/70">
               <Mail className="h-4 w-4 shrink-0 text-gold mt-0.5" />

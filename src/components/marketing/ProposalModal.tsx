@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/select";
 import { ArrowRight, Send } from "lucide-react";
 import { servicesList } from "@/components/layout/nav-config";
+import { WhatsappIcon } from "@/components/brand/WhatsappIcon";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(100),
@@ -98,7 +99,7 @@ function ProposalDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg w-[92%] sm:w-full">
         <DialogHeader>
           <DialogTitle className="text-navy text-2xl">Request a Proposal</DialogTitle>
           <DialogDescription>
@@ -149,6 +150,16 @@ function ProposalDialog({
             {submitting ? "Sending…" : "Send Request"}
             {submitting ? <Send className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
           </button>
+
+          <a
+            href="https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20ba59] shadow-sm cursor-pointer"
+          >
+            <WhatsappIcon className="h-4 w-4" />
+            Contact via WhatsApp
+          </a>
         </form>
       </DialogContent>
     </Dialog>

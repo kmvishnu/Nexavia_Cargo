@@ -51,7 +51,7 @@ export const quickLinks = [
 
 export const contactInfo = {
   address: "Al Garhoud, Dubai, United Arab Emirates",
-  phone: "+971 (0) 50 175 3459",
+  phone: "+971501753459",
   email: "info@nexaviaglobalcargo.com",
-  website: "wwww.nexaviaglobalcargo.com",
+  website: "www.nexaviaglobalcargo.com",
 };
