@@ -21,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRight, Send } from "lucide-react";
-import { servicesList } from "@/components/layout/nav-config";
+import { servicesList, contactInfo } from "@/components/layout/nav-config";
 import { WhatsappIcon } from "@/components/brand/WhatsappIcon";
 
 const schema = z.object({
@@ -97,17 +97,19 @@ function ProposalDialog({
     onOpenChange(false);
   };
 
+  const whatsappUrl = `https://wa.me/${contactInfo.phone.replace(/\D/g, "")}?text=I%27d%20like%20to%20know%20about%20the%20services`;
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg w-[92%] sm:w-full">
+      <DialogContent className="max-w-lg w-[92%] sm:w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 gap-3 sm:gap-4">
         <DialogHeader>
           <DialogTitle className="text-navy text-2xl">Request a Proposal</DialogTitle>
           <DialogDescription>
             Share a few details and our team will follow up with a tailored solution.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={onSubmit} className="space-y-4 pt-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <form onSubmit={onSubmit} className="space-y-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Field label="Full name" name="name" required placeholder="Jane Doe" />
             <Field label="Email" name="email" type="email" required placeholder="jane@company.com" />
             <Field label="Company" name="company" placeholder="Acme Cargo" />
@@ -118,7 +120,7 @@ function ProposalDialog({
               Service of interest
             </Label>
             <Select name="service" defaultValue={defaultService}>
-              <SelectTrigger className="mt-1.5">
+              <SelectTrigger className="mt-1">
                 <SelectValue placeholder="Select a service (optional)" />
               </SelectTrigger>
               <SelectContent>
@@ -137,25 +139,25 @@ function ProposalDialog({
             <Textarea
               name="message"
               required
-              rows={4}
+              rows={3}
               placeholder="Tell us about your cargo, routes, timelines…"
-              className="mt-1.5"
+              className="mt-1"
             />
           </div>
           <button
             type="submit"
             disabled={submitting}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-navy px-6 py-3 text-sm font-semibold text-navy-foreground transition-colors hover:bg-navy-deep disabled:opacity-70"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-navy px-6 py-2.5 text-sm font-semibold text-navy-foreground transition-colors hover:bg-navy-deep disabled:opacity-70"
           >
             {submitting ? "Sending…" : "Send Request"}
             {submitting ? <Send className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
           </button>
 
           <a
-            href="https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20ba59] shadow-sm cursor-pointer"
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#20ba59] shadow-sm cursor-pointer"
           >
             <WhatsappIcon className="h-4 w-4" />
             Contact via WhatsApp
@@ -176,7 +178,7 @@ function Field({
         {label}
         {props.required && " *"}
       </Label>
-      <Input {...props} className="mt-1.5" />
+      <Input {...props} className="mt-1" />
     </div>
   );
 }

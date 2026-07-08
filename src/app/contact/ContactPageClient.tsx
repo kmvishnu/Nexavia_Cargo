@@ -30,6 +30,10 @@ const schema = z.object({
 export default function ContactPageClient() {
   const [submitting, setSubmitting] = useState(false);
 
+  const emailSubject = encodeURIComponent("Inquiry regarding Nexavia Cargo Services");
+  const emailBody = encodeURIComponent("Hello Nexavia Cargo Team,\n\nI would like to inquire about your aviation services and freight solutions.\n\nBest regards,");
+  const emailUrl = `mailto:${contactInfo.email}?subject=${emailSubject}&body=${emailBody}`;
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -79,7 +83,7 @@ export default function ContactPageClient() {
                 </a>
               </ContactRow>
               <ContactRow Icon={Mail} title="Email">
-                <a href={`mailto:${contactInfo.email}`} className="hover:text-navy">
+                <a href={emailUrl} className="hover:text-navy">
                   {contactInfo.email}
                 </a>
               </ContactRow>

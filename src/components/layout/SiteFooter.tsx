@@ -14,6 +14,11 @@ import { contactInfo, quickLinks, servicesList } from "./nav-config";
 import { WhatsappIcon } from "@/components/brand/WhatsappIcon";
 
 export function SiteFooter() {
+  const whatsappUrl = `https://wa.me/${contactInfo.phone.replace(/\D/g, "")}?text=I%27d%20like%20to%20know%20about%20the%20services`;
+  const emailSubject = encodeURIComponent("Inquiry regarding Nexavia Cargo Services");
+  const emailBody = encodeURIComponent("Hello Nexavia Cargo Team,\n\nI would like to inquire about your aviation services and freight solutions.\n\nBest regards,");
+  const emailUrl = `mailto:${contactInfo.email}?subject=${emailSubject}&body=${emailBody}`;
+
   return (
     <footer className="bg-navy text-navy-foreground">
       <Container className="py-16">
@@ -31,8 +36,8 @@ export function SiteFooter() {
                 { Icon: Linkedin, href: "https://www.linkedin.com/company/nexaviaglobalcargo", label: "LinkedIn" },
                 { Icon: Facebook, href: "#", label: "Facebook" },
                 { Icon: Instagram, href: "https://www.instagram.com/nexavia_global_cargo/", label: "Instagram" },
-                { Icon: WhatsappIcon, href: "https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services", label: "WhatsApp" },
-                { Icon: Mail, href: `mailto:${contactInfo.email}`, label: "Email" },
+                { Icon: WhatsappIcon, href: whatsappUrl, label: "WhatsApp" },
+                { Icon: Mail, href: emailUrl, label: "Email" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -87,7 +92,7 @@ export function SiteFooter() {
             <div className="flex gap-3 text-sm text-white/70">
               <WhatsappIcon className="h-4 w-4 shrink-0 text-gold mt-0.5" />
               <a
-                href="https://wa.me/971501753459?text=I'd%20like%20to%20know%20about%20the%20services"
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
@@ -97,7 +102,7 @@ export function SiteFooter() {
             </div>
             <div className="flex gap-3 text-sm text-white/70">
               <Mail className="h-4 w-4 shrink-0 text-gold mt-0.5" />
-              <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
+              <a href={emailUrl} className="hover:text-gold transition-colors">{contactInfo.email}</a>
             </div>
             <div className="flex gap-3 text-sm text-white/70">
               <Globe className="h-4 w-4 shrink-0 text-gold mt-0.5" />
