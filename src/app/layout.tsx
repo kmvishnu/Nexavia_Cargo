@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import "../styles.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export default function RootLayout({
           </div>
           <Toaster position="top-center" richColors />
         </ProposalProvider>
+        <GoogleAnalytics gaId="G-78VL0R97FZ" />
       </body>
     </html>
   );
