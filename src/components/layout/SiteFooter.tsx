@@ -112,22 +112,11 @@ export function SiteFooter() {
         </div>
       </Container>
       <div className="border-t border-white/10">
-        <Container className="py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p className="text-center sm:text-left">
+        <Container className="py-5 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-white/60">
+          <p className="text-center">
             © {new Date().getFullYear()} Nexavia Global Cargo LLC. All Rights
             Reserved.
           </p>
-          {/* <p className="text-center sm:text-right">
-            Developed by{" "}
-            <a
-              href="https://kmvishnu.in"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold hover:underline transition-all font-medium"
-            >
-              Vishnu K M
-            </a>
-          </p> */}
         </Container>
       </div>
     </footer>
