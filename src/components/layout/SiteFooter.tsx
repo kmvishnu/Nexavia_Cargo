@@ -117,7 +117,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Nexavia Global Cargo LLC. All Rights
             Reserved.
           </p>
-          <p className="text-center sm:text-right">
+          {/* <p className="text-center sm:text-right">
             Developed by{" "}
             <a
               href="https://kmvishnu.in"
@@ -127,7 +127,7 @@ export function SiteFooter() {
             >
               Vishnu K M
             </a>
-          </p>
+          </p> */}
         </Container>
       </div>
     </footer>
